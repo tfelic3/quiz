@@ -1,22 +1,99 @@
 
 
-let userChoice = document.getElementsByTagName('button');
-let answerChoice ;
+let userChoice = document.querySelectorAll('button');
+let score =0;
+let btn= document.querySelectorAll('btn');
 
-for (let i =0; i<userChoice.length; i++){
-    if(userChoice[0]){
-        answerChoice = userChoice[i];
+let intro = document.querySelector('#intro-page');
+
+let cardOne = document.querySelector('#cardOne');
+
+console.log(cardOne);
+
+let introFunction = ()=>{
+  window.scrollTo({
+    top: 1000,
+    behavior: 'smooth'
+  });
+}
+intro.addEventListener('click', introFunction);
+
+userChoice.forEach(item => {
+  if (item.id === 'correctChoice') {
+    item.addEventListener('click', function() {
+      item.style.backgroundColor = 'green';
+      userChoice[1].style.backgroundColor = 'red';
+        userChoice[2].style.backgroundColor = 'red';
+        userChoice[3].style.backgroundColor = 'red';
+        score++;
+
+        //adds the answer choice
+        let answerChoice = document.createElement('p');
+        newGraph.textContent = "That is correct. Biden surged in Michigan."
+        cardOne.insertAdjacentElement('afterend', cardOne)
+
+        //scroll functionality
+        window.scrollTo({
+          bottom: 1000,
+          behavior: 'smooth'
+        });
+
+    });
+  } else {
+    item.addEventListener('click', function() {
+      userChoice[0].style.backgroundColor = 'green';
+      userChoice[1].style.backgroundColor = 'red';
+      userChoice[2].style.backgroundColor = 'red';
+      userChoice[3].style.backgroundColor = 'red';
+    });
+  }
+});
+
+let userInput = document.querySelector("input");
+console.log(userInput);
+
+
+
+
+
+/*
+userChoice.forEach(item => {
+    if (item.id === correctChoice) {
+      item.addEventListener('click', function() {
+        item.style.backgroundColor = 'green';
+        userChoice[1].style.backgroundColor = 'red';
+        userChoice[2].style.backgroundColor = 'red';
+        userChoice[3].style.backgroundColor = 'red';
+        userChoice[3].style.backgroundColor = 'red';
+        score++;
+           
+      })
+   
     }
-}
+  });
+*/
 
 
-let correct = () =>{
-    document.body.style.backgroundColor ="black";
-    
-}
 
-answerChoice.addEventListener('click', correct)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+   /*   let p= document.createElement('p');
+let newP = document.createTextNode('The Answer is Michigan');
+p.appendChild(newP);
+let position = document.getElementById('cardOne');
+position.appendChild(p) */
 
 /*
 
